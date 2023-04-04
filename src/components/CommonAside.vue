@@ -1,5 +1,5 @@
 <template>
-    <div>src/components/BlankPage.vue</div>
+    <div>src/components/CommonAside.vue</div>
 </template>
 
 
