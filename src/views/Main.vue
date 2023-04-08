@@ -10,7 +10,7 @@
                 </el-header>
                 <el-main>
                     <common-tag />
-                    <router-view />
+                    <router-view class="router-view" />
                 </el-main>
             </el-container>
         </el-container>
@@ -28,4 +28,12 @@ export default {
 </script>
 
 
-<style scoped></style>
+<style lang="less" scoped>
+.el-header {
+    padding: 0;
+}
+
+.router-view {
+    margin: 30px;
+}
+</style>
