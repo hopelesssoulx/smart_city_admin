@@ -6,6 +6,7 @@ import NewsEdit from '../views/news/NewsEdit.vue'
 import NewsPub from '../views/news/NewsPub.vue'
 import NewsBin from '../views/news/NewsBin.vue'
 import userList from '../views/user/userList.vue'
+import carousel from '../views/carousel/carousel.vue'
 
 const routes = [
     // { path: '/', name: 'blank_page', component: blank_page },
@@ -23,6 +24,8 @@ const routes = [
             { path: '/news/newsBin', name: 'newsBin', component: NewsBin }, // 新闻草稿
 
             { path: '/user/userList', name: 'userList', component: userList }, // 用户列表
+
+            { path: '/carousel/carousel', name: 'carousel', component: carousel }, // 用户列表
         ]
     }
 ]

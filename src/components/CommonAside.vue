@@ -97,6 +97,13 @@ export default {
                     ]
                 },
                 {
+                    path: '/carousel/carousel',
+                    name: 'carousel',
+                    label: '主页轮播图管理',
+                    icon: 'picture',
+                    url: '/carousel/carousel'
+                },
+                {
                     label: '用户管理',
                     icon: 'user',
                     children: [
