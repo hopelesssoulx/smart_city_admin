@@ -1,7 +1,7 @@
 <template>
     <!-- <div>src/views/carousel/Carousel.vue</div> -->
     <div>
-        <img class="img" v-for="i in images" :src="basicUrl + i.image" @click="imageClick(i.id)" />
+        <img class="img" v-for="i in images" :src="basicUrl + i.image" @dblclick="del(i.id)" />
     </div>
     <div class="upload">
 
@@ -53,7 +53,7 @@
 
 
 <script>
-import { getCarouselAddress, uploadCarouselImage } from '../../api/carousel'
+import { getCarouselAddress, uploadCarouselImage, deleteCarouselImage } from '../../api/carousel'
 import { ElMessage } from 'element-plus'
 export default {
     data() {
@@ -67,13 +67,10 @@ export default {
         }
     },
     methods: {
-        get() {
+        getData() {
             getCarouselAddress().then(({ data }) => {
                 this.images = data.data
             })
-        },
-        imageClick(data) {
-            console.log(data);
         },
         beforeCoverUpload(file) {
             const that = this;
@@ -92,10 +89,21 @@ export default {
                 if (res.data.status == -1) {
                     ElMessage(res.data.msg)
                 } else {
-                    ElMessage(res.data)
-                    setTimeout(() => {
-                        this.$router.go(0)
-                    }, 2000);
+                    ElMessage(res.data.msg)
+                    this.cover = ''
+                    this.getData()
+                }
+            })
+        },
+        del(id) {
+            deleteCarouselImage({
+                "id": id
+            }).then(({ data }) => {
+                if (data.status === 200) {
+                    ElMessage(data.msg)
+                    this.getData()
+                } else {
+                    ElMessage(data.msg)
                 }
             })
         },
@@ -105,7 +113,7 @@ export default {
         },
     },
     mounted() {
-        this.get()
+        this.getData()
     }
 }
 </script>

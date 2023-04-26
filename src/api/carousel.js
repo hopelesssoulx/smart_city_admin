@@ -13,3 +13,8 @@ export const uploadCarouselImage = function (params) {
         headers: { "Content-Type": "multipart/form-data" }
     });
 };
+
+// 删除轮播图
+export const deleteCarouselImage = function (params) {
+    return ax.post('/carousel/deleteImages', params)
+}
