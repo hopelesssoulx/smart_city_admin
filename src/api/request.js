@@ -31,7 +31,7 @@ ax.interceptors.response.use(
             setTimeout(() => {
                 rmToken()
                 location.href = "/home"
-            }, 3000);
+            }, 2000);
         }
     }
 )

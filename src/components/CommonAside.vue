@@ -15,11 +15,11 @@
                     <el-icon>
                         <Document />
                     </el-icon>
-                    <span>新闻管理</span>
+                    <span>资讯管理</span>
                 </template>
                 <el-menu-item-group>
-                    <el-menu-item index="1-1" @click="clickMenu()">新闻列表</el-menu-item>
-                    <el-menu-item index="1-2">新闻发布</el-menu-item>
+                    <el-menu-item index="1-1" @click="clickMenu()">资讯列表</el-menu-item>
+                    <el-menu-item index="1-2">资讯发布</el-menu-item>
                     <el-menu-item index="1-3">回收站</el-menu-item>
                 </el-menu-item-group>
             </el-sub-menu>
@@ -73,19 +73,19 @@ export default {
                     url: 'Home/Home'
                 },
                 {
-                    label: '新闻管理',
+                    label: '资讯管理',
                     icon: 'document',
                     children: [
                         {
                             path: '/news/newsList',
                             name: 'newsList',
-                            label: '新闻列表',
+                            label: '资讯列表',
                             url: 'news/newsList'
                         },
                         {
                             path: '/news/newsPub',
                             name: 'newsPub',
-                            label: '新闻发布',
+                            label: '资讯发布',
                             url: 'news/newsPub'
                         },
                         {
@@ -103,18 +103,18 @@ export default {
                     icon: 'picture',
                     url: '/carousel/carousel'
                 },
-                {
-                    label: '用户管理',
-                    icon: 'user',
-                    children: [
-                        {
-                            path: '/user/userList',
-                            name: 'userList',
-                            label: '用户列表',
-                            url: 'user/userList'
-                        }
-                    ]
-                },
+                // {
+                //     label: '用户管理',
+                //     icon: 'user',
+                //     children: [
+                //         {
+                //             path: '/user/userList',
+                //             name: 'userList',
+                //             label: '用户列表',
+                //             url: 'user/userList'
+                //         }
+                //     ]
+                // },
             ]
         }
     },

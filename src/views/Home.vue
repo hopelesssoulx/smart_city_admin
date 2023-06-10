@@ -7,9 +7,9 @@
             <el-button @click="loginEvent()">登录</el-button>
         </div>
         <div class="info" v-if="tokenStatus()">
-            <p>{{ 'username: ' + info.username }}</p>
-            <p>{{ 'email: ' + info.email }}</p>
-            <p>{{ 'usertype: ' + ((info.user_type == 0) ? '普通用户' : '管理员') }}</p>
+            <p>{{ '用户名: ' + info.username }}</p>
+            <p>{{ '邮箱: ' + info.email }}</p>
+            <p>{{ '用户类型: ' + ((info.user_type == 0) ? '普通用户' : '管理员') }}</p>
             <el-button @click="logoutEvent">退出登录</el-button>
         </div>
     </div>
@@ -42,7 +42,7 @@ export default {
                     setToken(data.token)
                     setTimeout(() => {
                         this.$router.go(0)
-                    }, 3000);
+                    }, 2000);
                 }
             })
         },
@@ -51,7 +51,7 @@ export default {
             rmToken('token')
             setTimeout(() => {
                 this.$router.go(0)
-            }, 3000);
+            }, 2000);
         },
         tokenStatus() {
             return getToken()

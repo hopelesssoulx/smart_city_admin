@@ -35,3 +35,8 @@ export const getNewsDetail = function (params) {
 export const newsEdit = function (params) {
     return ax.post('./news/newsEdit', params)
 }
+
+// 获取新闻分类
+export const getNewsCategory = function () {
+    return ax.get('./news/getNewsCategory')
+}

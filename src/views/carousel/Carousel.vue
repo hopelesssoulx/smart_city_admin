@@ -86,10 +86,10 @@ export default {
             formData.append('image', this.imageFile.raw)
             uploadCarouselImage(formData).then(res => {
                 console.log(res);
-                if (res.data.status == -1) {
-                    ElMessage(res.data.msg)
+                if (res.status == -1) {
+                    ElMessage(res.data)
                 } else {
-                    ElMessage(res.data.msg)
+                    ElMessage(res.data)
                     this.cover = ''
                     this.getData()
                 }
@@ -121,7 +121,8 @@ export default {
 
 <style lang="less">
 .img {
-    max-width: 200px;
+    max-width: 300px;
+    margin-left: 30px;
 }
 
 .upload {

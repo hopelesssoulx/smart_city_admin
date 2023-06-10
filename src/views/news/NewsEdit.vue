@@ -11,7 +11,7 @@
             副标题：<el-input v-model="subtitle" placeholder="subtitle" style="width: 200px;" />
         </div>
         <div class="news-pub-type">
-            新闻分类：<el-input v-model="type" placeholder="type" style="width: 200px;" />
+            资讯分类：<el-input v-model="type" placeholder="type" style="width: 200px;" />
         </div>
         <div class="news-pub-content">
             内容：<el-input v-model="content" type="textarea" placeholder="content" style="width: 700px;" />

@@ -8,10 +8,14 @@
             副标题：<el-input v-model="subtitle" placeholder="subtitle" style="width: 200px;" />
         </div>
         <div class="news-pub-type">
-            新闻分类：<el-input v-model="type" placeholder="type" style="width: 200px;" />
+            <!-- 资讯分类：<el-input v-model="type" placeholder="type" style="width: 200px;" /> -->
+            资讯分类:
+            <el-select v-model="type" placeholder="选择资讯分类">
+                <el-option v-for="item in newsCategory" :key="item.id" :label="item.news_category" :value="item.id" />
+            </el-select>
         </div>
         <div class="news-pub-content">
-            内容：<el-input v-model="content" type="textarea" placeholder="content" style="width: 700px;" />
+            内容：<el-input v-model="content" type="textarea" placeholder="content" style="width: 700px;" :rows="16" />
         </div>
         <div class="news-pub-cover">
             封面图：
@@ -31,7 +35,8 @@
 
 <script>
 import { ref } from 'vue'
-import { newsPub } from '../../api/news';
+import { newsPub, getNewsCategory } from '../../api/news';
+import { ElMessage } from 'element-plus';
 export default {
     data() {
         return {
@@ -39,7 +44,9 @@ export default {
             subtitle: ref(''),
             type: ref(''),
             content: ref(''),
-            cover: ref('')
+            cover: ref(''),
+
+            newsCategory: ref([]),
         }
     },
     methods: {
@@ -52,6 +59,10 @@ export default {
             }
         },
         pub() {
+            if (this.title == '' || this.type == '' || this.content == '' || this.cover == '') {
+                ElMessage('各信息不能为空')
+                return
+            }
             let that = this
             newsPub({
                 "title": this.title,
@@ -70,7 +81,9 @@ export default {
         },
     },
     mounted() {
-
+        getNewsCategory().then(({ data }) => {
+            this.newsCategory = data.data
+        })
     }
 }
 </script>

@@ -9,7 +9,7 @@
                     <common-header />
                 </el-header>
                 <el-main>
-                    <common-tag />
+                    <!-- <common-tag /> -->
                     <router-view class="router-view" />
                 </el-main>
             </el-container>

@@ -1,3 +1,5 @@
+import { getToken } from '../api/token';
+
 // import blank_page from '../components/BlankPage.vue'
 import Main from '../views/Main.vue'
 import Home from '../views/Home.vue'
@@ -32,9 +34,20 @@ const routes = [
 
 
 import { createRouter, createWebHashHistory } from 'vue-router'
+import { ElMessage } from 'element-plus';
 const router = createRouter({
     history: createWebHashHistory(),
     routes,
+})
+
+
+router.beforeEach((to, from, next) => {
+    if (!getToken() && to.path !== '/home') {
+        next('/home')
+        ElMessage('未登录')
+    } else {
+        next()
+    }
 })
 
 
